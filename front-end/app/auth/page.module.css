@@ -1,0 +1,24 @@
+.page {
+  margin-top: 3rem;
+}
+.container {
+  display: flex;
+  padding: 6rem 2rem 2rem 2rem;
+}
+.wrapperLeft,
+.wrapperRight {
+  width: 50%;
+}
+.wrapperLeft {
+    margin-right: 2rem;
+}
+@media (max-width: 1024px) {
+  .container {
+    display: block;
+    padding-top: 2.5rem;
+  }
+  .wrapperLeft,
+  .wrapperRight {
+    width: 100%;
+  }
+}
