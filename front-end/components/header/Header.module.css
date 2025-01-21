@@ -1,0 +1,8 @@
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  border-bottom: 1px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
+  background-color: white;
+  padding: 0.5rem;
+}
