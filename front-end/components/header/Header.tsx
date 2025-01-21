@@ -13,7 +13,7 @@ export default function Header() {
                     <Logo />
                     <NavLinks />
                     <Group visibleFrom="sm">
-                        <Button component="a" href="/auth">Log in</Button>
+                        <Button component="a" href="/auth" color="#E00000">Log in</Button>
                     </Group>
                     <NavbarMobile />
                 </Group>

@@ -28,17 +28,17 @@
   transform: rotate(180deg);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .link:hover {
     border-bottom: 1px solid rgb(179, 255, 179);
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .link:active {
     background-color:rgb(213, 213, 213);
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .collapse {
     position: relative;
     width: auto;
