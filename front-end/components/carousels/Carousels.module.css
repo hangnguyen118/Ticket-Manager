@@ -1,0 +1,12 @@
+.wrapper {
+  padding: 12px;
+}
+.card {
+  display: flex;
+  align-items: center;
+}
+.title {
+  color: var(--mantine-color-black);
+  line-height: 1.2;
+  margin-top: var(--mantine-spacing-xs);
+}
