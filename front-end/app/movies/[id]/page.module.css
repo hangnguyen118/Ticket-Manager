@@ -1,0 +1,15 @@
+.page {
+    margin-top: 4rem;
+}
+.movie_hero {
+    display: flex;
+    justify-content: start;
+    margin-bottom: 20px;
+}
+.age_rating {
+    position: absolute;
+    margin: 4px;
+}
+.content_left {
+    padding-left: 10px;
+}

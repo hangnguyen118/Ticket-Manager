@@ -26,7 +26,7 @@ export default function NavbarMobile() {
                     <Divider my="sm" />
                     <Group justify="center" grow pb="xl" px="md">
                         <Button variant="default">Log in</Button>
-                        <Button>Sign up</Button>
+                        <Button color="#E00000">Sign up</Button>
                     </Group>
                 </ScrollArea>
             </Drawer>
