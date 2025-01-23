@@ -1,9 +1,9 @@
 import { Menu, Movie } from "./types";
 
 export const links: Menu[] = [
-  { link: "/", label: "🍎 Apples" },
+  { link: "/", label: "🍎 Home" },
   {
-    link: "/#",
+    link: "/",
     label: "🍅 Features",
     links: [
       { link: "/docs", label: "🍌 Bananas" },
@@ -12,8 +12,8 @@ export const links: Menu[] = [
       { link: "/blog", label: "🍞 Bread" },
     ],
   },
-  { link: "/about", label: "🥚 Eggs" },
-  { link: "/pricing", label: "🍗 Chicken" },
+  { link: "/movies", label: "🥚 List Movies" },
+  { link: "/movies/1", label: "🍗 Detail" },
   {
     link: "#2",
     label: "🥩 Beef",
@@ -33,14 +33,21 @@ export const movies: Movie[] = [
     genre: ["Hành động", "Hài", "Lãng mạng"],
     posterUrl:
       "https://cinema.momocdn.net/img/55117941458947931-botubaothu.jpg?size=M",
+    release_day: "10/01/2025",
+    duration: 180,
+    age_rating: 18,
   },
   {
-    title: "Nụ Hôn Bạc Tỷ Nụ Hôn Bạc Tỷ Nụ Hôn Bạc Tỷ Nụ Hôn Bạc Tỷ Nụ Hôn Bạc Tỷ Nụ Hôn Bạc Tỷ",
+    title:
+      "Nụ Hôn Bạc Tỷ Nụ Hôn Bạc Tỷ Nụ Hôn Bạc Tỷ Nụ Hôn Bạc Tỷ Nụ Hôn Bạc Tỷ Nụ Hôn Bạc Tỷ",
     description:
       "The story revolves around Vân, a bread seller who accidentally encounters two young men in a minor accident. What happens when love at first sight strikes all three of them simultaneously? Between a mature, manly guy and a slightly rebellious, cool one, who will win the ",
     genre: ["Hài Hước", "Chính kịch", "Lãng mạng"],
     posterUrl:
       "https://cinema.momocdn.net/img/31337174866614229-nhbt.jpg?size=M",
+    release_day: "10/01/2025",
+    duration: 180,
+    age_rating: 18,
   },
   {
     title: "Paddington: Gấu Thủ Chu Du",
@@ -49,6 +56,9 @@ export const movies: Movie[] = [
     genre: ["Khoa học viễn tưởng", "Siêu nhiên"],
     posterUrl:
       "https://image.tmdb.org/t/p/w500/7yWE3f1zI8FlJI2tUDIRSnVHptY.jpg",
+    release_day: "10/01/2025",
+    duration: 180,
+    age_rating: 18,
   },
   {
     title: "Mickey 17",
@@ -57,6 +67,9 @@ export const movies: Movie[] = [
     genre: ["Kinh dị", "Rùng Rợn"],
     posterUrl:
       "https://cinema.momocdn.net/img/50706100909000337-pBpHjKGTsPFrlrR9nS0MJZ8hKL.jpg",
+    release_day: "10/01/2025",
+    duration: 180,
+    age_rating: 18,
   },
   {
     title: "Nhà Gia Tiên",
@@ -65,6 +78,9 @@ export const movies: Movie[] = [
     genre: ["Hành động", "Giật gân"],
     posterUrl:
       "https://image.tmdb.org/t/p/w500/yHdDgzEnFslwfwz2Hzc498lIhFx.jpg",
+    release_day: "10/01/2025",
+    duration: 180,
+    age_rating: 18,
   },
   {
     title: "Vùng Đất Linh Hồn",
@@ -73,5 +89,8 @@ export const movies: Movie[] = [
     genre: ["Hài hước", "Lãng mạng"],
     posterUrl:
       "https://image.tmdb.org/t/p/w500/pNHppsjxGBcRUCFlXQh0briymTN.jpg",
+    release_day: "10/01/2025",
+    duration: 180,
+    age_rating: 18,
   },
 ];

@@ -10,8 +10,10 @@ export interface Movie {
   genre: string[],
   director?: string;
   posterUrl: string;
-  trailerUrl?: string;
-  releaseDate?: string;
+  trailerUrl?: string;  
   rating?: string;
   isAvailable?: boolean;
+  release_day: string;
+  duration: number;
+  age_rating: number;
 }
