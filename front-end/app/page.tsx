@@ -8,7 +8,7 @@ export default function Home() {
       <main>
         <Container size="lg" className={classes.container}>
           <div>
-            <Title order={4}>Phim nổi bật</Title>
+            <Title order={4} className={`${classes.dark} ${classes.light}`}>Phim nổi bật</Title>
             <Carousels />
           </div>
           <div>

@@ -4,8 +4,9 @@ import { Burger, Button, Divider, Drawer, Group, ScrollArea } from "@mantine/cor
 import { useDisclosure } from "@mantine/hooks";
 import { links } from "@/data/mockdatas";
 import MenuItem from "../menuItem/MenuItem";
+import { BaseProps } from "@/data/types";
 
-export default function NavbarMobile() {
+export default function NavbarMobile({hiddenFrom}:BaseProps) {
     const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
     const items = links.map(({ label, link, links }, index) => (
         <MenuItem key={index} label={label} link={link} links={links} />
@@ -17,9 +18,9 @@ export default function NavbarMobile() {
                 onClose={closeDrawer}
                 size="100%"
                 padding="md"
-                hiddenFrom="sm"
                 zIndex={1000000}
                 title="Menu"
+                hiddenFrom={hiddenFrom}
             >
                 <ScrollArea h="calc(100vh - 80px" mx="-md" type="always">
                     {items}
@@ -30,7 +31,7 @@ export default function NavbarMobile() {
                     </Group>
                 </ScrollArea>
             </Drawer>
-            <Burger opened={drawerOpened} onClick={toggleDrawer} aria-label="Toggle navigation" size="sm" hiddenFrom="sm" />
+            <Burger opened={drawerOpened} onClick={toggleDrawer} aria-label="Toggle navigation" size="sm" hiddenFrom={hiddenFrom}/>
         </>
     )
 }

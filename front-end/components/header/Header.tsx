@@ -11,11 +11,11 @@ export default function Header() {
             <div className={classes.inner}>
                 <Group justify="space-between">
                     <Logo />
-                    <NavLinks />
+                    <NavLinks visibleFrom="sm"/>
                     <Group visibleFrom="sm">
-                        <Button component="a" href="/auth" color="#E00000">Log in</Button>
+                        <Button component="a" href="/auth" color="#E00000" visibleFrom="sm">Log in</Button>
                     </Group>
-                    <NavbarMobile />
+                    <NavbarMobile hiddenFrom="sm"/>
                 </Group>
             </div>
         </header>

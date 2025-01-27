@@ -17,3 +17,8 @@ export interface Movie {
   duration: number;
   age_rating: number;
 }
+
+export interface BaseProps {
+  visibleFrom?: 'sm' | 'md' | 'lg' | 'xl';
+  hiddenFrom?: 'sm' | 'md' | 'lg' | 'xl';
+}
