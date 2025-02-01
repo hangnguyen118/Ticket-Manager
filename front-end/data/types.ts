@@ -11,7 +11,7 @@ export interface Movie {
   director?: string;
   posterUrl: string;
   trailerUrl?: string;  
-  rating?: string;
+  rating: number;
   isAvailable?: boolean;
   release_day: string;
   duration: number;
