@@ -7,12 +7,12 @@ interface MovieCardProps extends Movie {
   [key: string]: unknown;
 }
 
-export default function MovieCard({ title, rating, age_rating, genre, duration, release_day, ...rest }: MovieCardProps) {
+export default function MovieCard({ title, rating, age_rating, genre, duration, release_day, posterUrl, ...rest }: MovieCardProps) {
   return (
     <Card className={classes.card} shadow="sm" padding={0}>
       <Flex {...rest}>
         <Box className={classes.card_section}>
-          <Image src="https://cinema.momocdn.net/img/55117941458947931-botubaothu.jpg?size=M" alt={title} fit="cover" h={{base: 200, sm:300}} radius="md" />
+          <Image src={posterUrl} alt={title} fit="cover" h={{base: 200, sm:300}} radius="md" />
           <Badge className={classes.badge} color="rgba(255, 61, 61, 1)">{age_rating}+</Badge>
         </Box>
         <Box p={10}>
