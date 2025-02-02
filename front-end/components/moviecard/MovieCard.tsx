@@ -12,7 +12,7 @@ export default function MovieCard({ title, rating, age_rating, genre, duration, 
     <Card className={classes.card} shadow="sm" padding={0}>
       <Flex {...rest}>
         <Box className={classes.card_section}>
-          <Image src="https://cinema.momocdn.net/img/55117941458947931-botubaothu.jpg?size=M" alt={title} fit="cover" h={240} radius="md" />
+          <Image src="https://cinema.momocdn.net/img/55117941458947931-botubaothu.jpg?size=M" alt={title} fit="cover" h={{base: 200, sm:300}} radius="md" />
           <Badge className={classes.badge} color="rgba(255, 61, 61, 1)">{age_rating}+</Badge>
         </Box>
         <Box p={10}>
