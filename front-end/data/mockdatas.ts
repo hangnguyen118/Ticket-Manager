@@ -35,6 +35,7 @@ export const movies: Movie[] = [
       "https://cinema.momocdn.net/img/55117941458947931-botubaothu.jpg?size=M",
     release_day: "10/01/2025",
     duration: 180,
+    rating: 1.5,
     age_rating: 18,
   },
   {
@@ -47,6 +48,7 @@ export const movies: Movie[] = [
       "https://cinema.momocdn.net/img/31337174866614229-nhbt.jpg?size=M",
     release_day: "10/01/2025",
     duration: 180,
+    rating: 1.5,
     age_rating: 18,
   },
   {
@@ -58,6 +60,7 @@ export const movies: Movie[] = [
       "https://image.tmdb.org/t/p/w500/7yWE3f1zI8FlJI2tUDIRSnVHptY.jpg",
     release_day: "10/01/2025",
     duration: 180,
+    rating: 1.5,
     age_rating: 18,
   },
   {
@@ -69,6 +72,7 @@ export const movies: Movie[] = [
       "https://cinema.momocdn.net/img/50706100909000337-pBpHjKGTsPFrlrR9nS0MJZ8hKL.jpg",
     release_day: "10/01/2025",
     duration: 180,
+    rating: 1.5,
     age_rating: 18,
   },
   {
@@ -80,6 +84,7 @@ export const movies: Movie[] = [
       "https://image.tmdb.org/t/p/w500/yHdDgzEnFslwfwz2Hzc498lIhFx.jpg",
     release_day: "10/01/2025",
     duration: 180,
+    rating: 1.5,
     age_rating: 18,
   },
   {
@@ -91,6 +96,7 @@ export const movies: Movie[] = [
       "https://image.tmdb.org/t/p/w500/pNHppsjxGBcRUCFlXQh0briymTN.jpg",
     release_day: "10/01/2025",
     duration: 180,
+    rating: 1.5,
     age_rating: 18,
   },
 ];

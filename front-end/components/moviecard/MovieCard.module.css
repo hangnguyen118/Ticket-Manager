@@ -1,8 +1,23 @@
-.wrapper {
-    background-color: antiquewhite;
-    height: 140px;
+.card {
+  width: 14rem;
 }
-.wrapper_left {
-    background-color: aqua;
-    height: 140px;
+
+.card_section {
+  position: relative;
+  min-width: 10rem;
+}
+
+.badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+@media (max-width: 48rem) {
+  .card {
+    width: auto;
+  }
+  .card_section {
+    width: 8rem;
+  }
 }

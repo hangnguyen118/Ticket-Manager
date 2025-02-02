@@ -1,14 +1,34 @@
 import classes from "./MovieCard.module.css";
 import { Movie } from "@/data/types";
-import { Grid, GridCol, Text } from "@mantine/core";
+import { Badge, Box, Card, Flex, Group, Image, Text } from "@mantine/core";
+import { IconCalendarMonth, IconClockHour3 } from "@tabler/icons-react";
 
-export default function MovieCard({ title, description, genre, duration, release_day, posterUrl }: Movie) {
+interface MovieCardProps extends Movie {
+  [key: string]: unknown;
+}
+
+export default function MovieCard({ title, rating, age_rating, genre, duration, release_day, posterUrl, ...rest }: MovieCardProps) {
   return (
-    <div className={classes.wrapper}>
-      <Grid>
-        <GridCol span={4} className={classes.wrapper_left}>Image</GridCol>
-        <GridCol span={8} className={classes.wrapper_right}> <Text>{title}</Text></GridCol>
-      </Grid>
-    </div>
+    <Card className={classes.card} shadow="sm" padding={0}>
+      <Flex {...rest}>
+        <Box className={classes.card_section}>
+          <Image src={posterUrl} alt={title} fit="cover" h={{base: 200, sm:300}} radius="md" />
+          <Badge className={classes.badge} color="rgba(255, 61, 61, 1)">{age_rating}+</Badge>
+        </Box>
+        <Box p={10}>
+          <Text>{rating}</Text>
+          <Text fw={700} lineClamp={1}>{title}</Text>
+          <Text lineClamp={1} c="dimmed">{genre.join(", ")}</Text>
+          <Group>
+            <IconClockHour3 />
+            <Text c="dimmed">{duration}</Text>
+          </Group>
+          <Text lineClamp={1} c="dimmed" inline={true}>
+            <IconCalendarMonth size={22} />
+            {release_day}
+          </Text>
+        </Box>
+      </Flex>
+    </Card>
   )
 }
