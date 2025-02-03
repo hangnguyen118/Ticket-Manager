@@ -2,6 +2,7 @@ import { Menu, Movie } from "./types";
 
 export const links: Menu[] = [
   { link: "/", label: "🍎 Home" },
+  { link: "/cinema", label: "🍎 Cinemas" },
   {
     link: "/",
     label: "🍅 Features",
@@ -100,3 +101,41 @@ export const movies: Movie[] = [
     age_rating: 18,
   },
 ];
+
+export const cinemas = [
+  {
+      name: "Galaxy",
+      url: "#",
+      imageUrl: "https://th.bing.com/th/id/R.eed8e873ade1b1bbd5757d0a17cdbb56?rik=F0%2fTRX6O276mgQ&pid=ImgRaw&r=0"
+  },
+  {
+      name: "Galaxy",
+      url: "#",
+      imageUrl: "https://th.bing.com/th/id/OIP.D2stMKldXfYLNWYtlXZb8QAAAA?rs=1&pid=ImgDetMain"
+  },
+  {
+      name: "Galaxy",
+      url: "#",
+      imageUrl: "https://th.bing.com/th/id/OIP.1RbXSrF3sLYpmYpLa__wDgHaEF?rs=1&pid=ImgDetMain"
+  },
+  {
+      name: "Galaxy",
+      url: "#",
+      imageUrl: "https://th.bing.com/th/id/R.6446be12ece075f6901dc200d16592eb?rik=y02nk4GCtPLF4A&pid=ImgRaw&r=0"
+  },
+  {
+      name: "Galaxy",
+      url: "#",
+      imageUrl: "https://th.bing.com/th/id/OIP.paXGCXPfwlpuXNIu02Of6QHaFj?pid=ImgDet&w=474&h=355&rs=1"
+  },
+  {
+      name: "Galaxy",
+      url: "#",
+      imageUrl: "https://th.bing.com/th/id/OIP.Sxe1CkTZ1F7wYEnUWudgQgHaFj?pid=ImgDet&w=474&h=355&rs=1"
+  },
+  {
+      name: "Galaxy",
+      url: "#",
+      imageUrl: "https://th.bing.com/th/id/OIP.Sxe1CkTZ1F7wYEnUWudgQgHaFj?pid=ImgDet&w=474&h=355&rs=1"
+  },
+]
