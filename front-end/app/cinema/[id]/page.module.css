@@ -1,0 +1,9 @@
+.page {
+  margin-top: 4rem;
+}
+.content {
+    background-color: rgb(233, 233, 233);
+}
+.content_highlight {
+    background-color: pink;
+}
