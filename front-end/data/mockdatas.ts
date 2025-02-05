@@ -1,4 +1,4 @@
-import { Menu, Movie } from "./types";
+import { Menu, Movie, Seat } from "./types";
 
 export const links: Menu[] = [
   { link: "/", label: "🍎 Home" },
@@ -104,38 +104,367 @@ export const movies: Movie[] = [
 
 export const cinemas = [
   {
-      name: "Galaxy",
-      url: "#",
-      imageUrl: "https://th.bing.com/th/id/R.eed8e873ade1b1bbd5757d0a17cdbb56?rik=F0%2fTRX6O276mgQ&pid=ImgRaw&r=0"
+    name: "Galaxy",
+    url: "#",
+    imageUrl:
+      "https://th.bing.com/th/id/R.eed8e873ade1b1bbd5757d0a17cdbb56?rik=F0%2fTRX6O276mgQ&pid=ImgRaw&r=0",
   },
   {
-      name: "Galaxy",
-      url: "#",
-      imageUrl: "https://th.bing.com/th/id/OIP.D2stMKldXfYLNWYtlXZb8QAAAA?rs=1&pid=ImgDetMain"
+    name: "Galaxy",
+    url: "#",
+    imageUrl:
+      "https://th.bing.com/th/id/OIP.D2stMKldXfYLNWYtlXZb8QAAAA?rs=1&pid=ImgDetMain",
   },
   {
-      name: "Galaxy",
-      url: "#",
-      imageUrl: "https://th.bing.com/th/id/OIP.1RbXSrF3sLYpmYpLa__wDgHaEF?rs=1&pid=ImgDetMain"
+    name: "Galaxy",
+    url: "#",
+    imageUrl:
+      "https://th.bing.com/th/id/OIP.1RbXSrF3sLYpmYpLa__wDgHaEF?rs=1&pid=ImgDetMain",
   },
   {
-      name: "Galaxy",
-      url: "#",
-      imageUrl: "https://th.bing.com/th/id/R.6446be12ece075f6901dc200d16592eb?rik=y02nk4GCtPLF4A&pid=ImgRaw&r=0"
+    name: "Galaxy",
+    url: "#",
+    imageUrl:
+      "https://th.bing.com/th/id/R.6446be12ece075f6901dc200d16592eb?rik=y02nk4GCtPLF4A&pid=ImgRaw&r=0",
   },
   {
-      name: "Galaxy",
-      url: "#",
-      imageUrl: "https://th.bing.com/th/id/OIP.paXGCXPfwlpuXNIu02Of6QHaFj?pid=ImgDet&w=474&h=355&rs=1"
+    name: "Galaxy",
+    url: "#",
+    imageUrl:
+      "https://th.bing.com/th/id/OIP.paXGCXPfwlpuXNIu02Of6QHaFj?pid=ImgDet&w=474&h=355&rs=1",
   },
   {
-      name: "Galaxy",
-      url: "#",
-      imageUrl: "https://th.bing.com/th/id/OIP.Sxe1CkTZ1F7wYEnUWudgQgHaFj?pid=ImgDet&w=474&h=355&rs=1"
+    name: "Galaxy",
+    url: "#",
+    imageUrl:
+      "https://th.bing.com/th/id/OIP.Sxe1CkTZ1F7wYEnUWudgQgHaFj?pid=ImgDet&w=474&h=355&rs=1",
   },
   {
-      name: "Galaxy",
-      url: "#",
-      imageUrl: "https://th.bing.com/th/id/OIP.Sxe1CkTZ1F7wYEnUWudgQgHaFj?pid=ImgDet&w=474&h=355&rs=1"
+    name: "Galaxy",
+    url: "#",
+    imageUrl:
+      "https://th.bing.com/th/id/OIP.Sxe1CkTZ1F7wYEnUWudgQgHaFj?pid=ImgDet&w=474&h=355&rs=1",
   },
-]
+];
+
+export const daysShort = [
+  {
+    day: "Mon",
+    date: "25",
+  },
+  {
+    day: "Tue",
+    date: "25",
+  },
+  {
+    day: "Wed",
+    date: "25",
+  },
+  {
+    day: "Thur",
+    date: "25",
+  },
+  {
+    day: "Fri",
+    date: "25",
+  },
+  {
+    day: "Sat",
+    date: "25",
+  },
+  {
+    day: "Sun",
+    date: "25",
+  },
+];
+
+export const seats: Record<string, Seat[]> = {
+  A: [
+    {
+      id: 0,
+      row: "A",
+      number: 1,
+      seat_type: 1,
+      status: true,
+    },
+    {
+      id: 1,
+      row: "A",
+      number: 2,
+      seat_type: 1,
+      status: true,
+    },
+    {
+      id: 2,
+      row: "A",
+      number: 3,
+      seat_type: 1,
+      status: true,
+    },
+    {
+      id: 3,
+      row: "A",
+      number: 4,
+      seat_type: 1,
+      status: true,
+    },
+    {
+      id: 4,
+      row: "A",
+      number: 5,
+      seat_type: 1,
+      status: true,
+    },
+    {
+      id: 5,
+      row: "A",
+      number: 6,
+      seat_type: 1,
+      status: true,
+    },
+    {
+      id: 6,
+      row: "A",
+      number: 7,
+      seat_type: 1,
+      status: true,
+    },
+    {
+      id: 7,
+      row: "A",
+      number: 8,
+      seat_type: 1,
+      status: true,
+    },
+    {
+      id: 8,
+      row: "A",
+      number: 9,
+      seat_type: 1,
+      status: true,
+    },
+    {
+      id: 9,
+      row: "A",
+      number: 10,
+      seat_type: 1,
+      status: true,
+    },
+    {
+      id: 10,
+      row: "A",
+      number: 11,
+      seat_type: 1,
+      status: true,
+    },
+    {
+      id: 11,
+      row: "A",
+      number: 12,
+      seat_type: 1,
+      status: true,
+    },
+    {
+      id: 12,
+      row: "A",
+      number: 13,
+      seat_type: 1,
+      status: true,
+    },
+    {
+      id: 13,
+      row: "A",
+      number: 14,
+      seat_type: 1,
+      status: true,
+    },
+  ],
+  B: [
+    {
+      id: 14,
+      row: "B",
+      number: 1,
+      seat_type: 2,
+      status: true,
+    },
+    {
+      id: 15,
+      row: "B",
+      number: 2,
+      seat_type: 2,
+      status: true,
+    },
+    {
+      id: 16,
+      row: "B",
+      number: 3,
+      seat_type: 2,
+      status: true,
+    },
+    {
+      id: 17,
+      row: "B",
+      number: 4,
+      seat_type: 2,
+      status: true,
+    },
+    {
+      id: 18,
+      row: "B",
+      number: 5,
+      seat_type: 2,
+      status: true,
+    },
+    {
+      id: 19,
+      row: "B",
+      number: 6,
+      seat_type: 2,
+      status: true,
+    },
+    {
+      id: 20,
+      row: "B",
+      number: 7,
+      seat_type: 2,
+      status: true,
+    },
+    {
+      id: 21,
+      row: "B",
+      number: 8,
+      seat_type: 2,
+      status: true,
+    },
+    {
+      id: 22,
+      row: "B",
+      number: 9,
+      seat_type: 2,
+      status: true,
+    },
+    {
+      id: 23,
+      row: "B",
+      number: 10,
+      seat_type: 2,
+      status: true,
+    },
+  ],
+  C: [
+    {
+      id: 24,
+      row: "C",
+      number: 1,
+      seat_type: 2,
+      status: true,
+    },
+    {
+      id: 25,
+      row: "C",
+      number: 2,
+      seat_type: 2,
+      status: true,
+    },
+    {
+      id: 26,
+      row: "C",
+      number: 3,
+      seat_type: 2,
+      status: true,
+    },
+    {
+      id: 27,
+      row: "C",
+      number: 4,
+      seat_type: 2,
+      status: true,
+    },
+    {
+      id: 28,
+      row: "C",
+      number: 5,
+      seat_type: 2,
+      status: true,
+    },
+    {
+      id: 29,
+      row: "C",
+      number: 6,
+      seat_type: 2,
+      status: true,
+    },
+    {
+      id: 30,
+      row: "C",
+      number: 7,
+      seat_type: 2,
+      status: true,
+    },
+    {
+      id: 31,
+      row: "C",
+      number: 8,
+      seat_type: 2,
+      status: true,
+    },
+    {
+      id: 32,
+      row: "C",
+      number: 9,
+      seat_type: 2,
+      status: true,
+    },
+    {
+      id: 33,
+      row: "C",
+      number: 10,
+      seat_type: 2,
+      status: true,
+    },
+  ],
+  D: [
+    {
+      id: 111,
+      row: "D",
+      number: 1,
+      seat_type: 3,
+      status: true,
+    },
+    {
+      id: 34,
+      row: "D",
+      number: 2,
+      seat_type: 3,
+      status: true,
+    },
+    {
+      id: 35,
+      row: "D",
+      number: 4,
+      seat_type: 3,
+      status: true,
+    },
+    {
+      id: 36,
+      row: "D",
+      number: 5,
+      seat_type: 3,
+      status: true,
+    },
+    {
+      id: 37,
+      row: "D",
+      number: 6,
+      seat_type: 3,
+      status: true,
+    },
+    {
+      id: 38,
+      row: "D",
+      number: 7,
+      seat_type: 3,
+      status: true,
+    },
+  ],
+};
