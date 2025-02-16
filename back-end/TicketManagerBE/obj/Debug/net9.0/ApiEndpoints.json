@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "TicketManagerBE.Controllers.MovieController",
+    "Method": "GetMovies",
+    "RelativePath": "Movie",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
