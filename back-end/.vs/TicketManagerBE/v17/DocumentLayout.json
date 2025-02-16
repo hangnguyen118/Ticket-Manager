@@ -1,12 +1,93 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Document\\React\\ticket-manager\\back-end\\",
+<<<<<<< HEAD
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B85D881F-30EB-4AD1-8E22-943DEA21603D}|TicketManagerBE\\TicketManagerBE.csproj|c:\\document\\react\\ticket-manager\\back-end\\ticketmanagerbe\\controllers\\moviecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B85D881F-30EB-4AD1-8E22-943DEA21603D}|TicketManagerBE\\TicketManagerBE.csproj|solutionrelative:ticketmanagerbe\\controllers\\moviecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B85D881F-30EB-4AD1-8E22-943DEA21603D}|TicketManagerBE\\TicketManagerBE.csproj|c:\\document\\react\\ticket-manager\\back-end\\ticketmanagerbe\\databases\\moviedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B85D881F-30EB-4AD1-8E22-943DEA21603D}|TicketManagerBE\\TicketManagerBE.csproj|solutionrelative:ticketmanagerbe\\databases\\moviedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B85D881F-30EB-4AD1-8E22-943DEA21603D}|TicketManagerBE\\TicketManagerBE.csproj|c:\\document\\react\\ticket-manager\\back-end\\ticketmanagerbe\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B85D881F-30EB-4AD1-8E22-943DEA21603D}|TicketManagerBE\\TicketManagerBE.csproj|solutionrelative:ticketmanagerbe\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B85D881F-30EB-4AD1-8E22-943DEA21603D}|TicketManagerBE\\TicketManagerBE.csproj|c:\\document\\react\\ticket-manager\\back-end\\ticketmanagerbe\\model\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B85D881F-30EB-4AD1-8E22-943DEA21603D}|TicketManagerBE\\TicketManagerBE.csproj|solutionrelative:ticketmanagerbe\\model\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+=======
   "Documents": [],
+>>>>>>> 527386d24b0791f87f9f52fdb8012148e0e7910b
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
+<<<<<<< HEAD
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Movie.cs",
+              "DocumentMoniker": "C:\\Document\\React\\ticket-manager\\back-end\\TicketManagerBE\\Model\\Movie.cs",
+              "RelativeDocumentMoniker": "TicketManagerBE\\Model\\Movie.cs",
+              "ToolTip": "C:\\Document\\React\\ticket-manager\\back-end\\TicketManagerBE\\Model\\Movie.cs",
+              "RelativeToolTip": "TicketManagerBE\\Model\\Movie.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-16T11:05:10.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MovieData.cs",
+              "DocumentMoniker": "C:\\Document\\React\\ticket-manager\\back-end\\TicketManagerBE\\Databases\\MovieData.cs",
+              "RelativeDocumentMoniker": "TicketManagerBE\\Databases\\MovieData.cs",
+              "ToolTip": "C:\\Document\\React\\ticket-manager\\back-end\\TicketManagerBE\\Databases\\MovieData.cs",
+              "RelativeToolTip": "TicketManagerBE\\Databases\\MovieData.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAlwBoAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-16T11:02:44.4Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MovieController.cs",
+              "DocumentMoniker": "C:\\Document\\React\\ticket-manager\\back-end\\TicketManagerBE\\Controllers\\MovieController.cs",
+              "RelativeDocumentMoniker": "TicketManagerBE\\Controllers\\MovieController.cs",
+              "ToolTip": "C:\\Document\\React\\ticket-manager\\back-end\\TicketManagerBE\\Controllers\\MovieController.cs",
+              "RelativeToolTip": "TicketManagerBE\\Controllers\\MovieController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-16T10:52:42.389Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Document\\React\\ticket-manager\\back-end\\TicketManagerBE\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "TicketManagerBE\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Document\\React\\ticket-manager\\back-end\\TicketManagerBE\\Properties\\launchSettings.json",
+              "RelativeToolTip": "TicketManagerBE\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-16T10:50:02.114Z"
+            }
+          ]
+        }
+      ]
+=======
       "DocumentGroups": []
+>>>>>>> 527386d24b0791f87f9f52fdb8012148e0e7910b
     }
   ]
 }
