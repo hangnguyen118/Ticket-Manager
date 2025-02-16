@@ -38,8 +38,7 @@
               "RelativeToolTip": "TicketManagerBE\\Model\\Movie.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-16T11:05:10.649Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-16T11:05:10.649Z"
             },
             {
               "$type": "Document",
@@ -51,8 +50,7 @@
               "RelativeToolTip": "TicketManagerBE\\Databases\\MovieData.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAlwBoAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-16T11:02:44.4Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-16T11:02:44.4Z"
             },
             {
               "$type": "Document",
@@ -62,7 +60,7 @@
               "RelativeDocumentMoniker": "TicketManagerBE\\Controllers\\MovieController.cs",
               "ToolTip": "C:\\Document\\React\\ticket-manager\\back-end\\TicketManagerBE\\Controllers\\MovieController.cs",
               "RelativeToolTip": "TicketManagerBE\\Controllers\\MovieController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-16T10:52:42.389Z",
               "EditorCaption": ""
@@ -77,8 +75,7 @@
               "RelativeToolTip": "TicketManagerBE\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-16T10:50:02.114Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-16T10:50:02.114Z"
             }
           ]
         }
