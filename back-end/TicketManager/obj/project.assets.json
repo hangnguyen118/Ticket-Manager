@@ -81,11 +81,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Document\\.Net\\TicketManager\\TicketManager\\TicketManager.csproj",
+      "projectUniqueName": "C:\\Document\\React\\ticket-manager\\back-end\\TicketManager\\TicketManager.csproj",
       "projectName": "TicketManager",
-      "projectPath": "C:\\Document\\.Net\\TicketManager\\TicketManager\\TicketManager.csproj",
+      "projectPath": "C:\\Document\\React\\ticket-manager\\back-end\\TicketManager\\TicketManager.csproj",
       "packagesPath": "C:\\Users\\ntdie\\.nuget\\packages\\",
-      "outputPath": "C:\\Document\\.Net\\TicketManager\\TicketManager\\obj\\",
+      "outputPath": "C:\\Document\\React\\ticket-manager\\back-end\\TicketManager\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
