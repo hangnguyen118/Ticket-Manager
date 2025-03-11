@@ -43,3 +43,9 @@ next-env.d.ts
 .vs
 bin
 obj
+
+# 🔧 **ASP.NET Core**
+appsettings*.json
+secrets.json
+.env
+.env.*.local
