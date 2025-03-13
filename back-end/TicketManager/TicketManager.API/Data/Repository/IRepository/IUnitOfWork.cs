@@ -6,6 +6,7 @@ namespace TicketManager.API.Data.Repository.IRepository
     {
         IBaseRepository<Cinema> Cinema { get; }
         IBaseRepository<Screen> Screen { get; }
+        IBaseRepository<Seat> Seat { get; }
         void Save();
     }
 }

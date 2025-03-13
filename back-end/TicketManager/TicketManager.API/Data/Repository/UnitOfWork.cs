@@ -8,11 +8,13 @@ namespace TicketManager.API.Data.Repository
         private readonly ApplicationDbContext _db;
         public IBaseRepository<Cinema> Cinema { get; private set; }
         public IBaseRepository<Screen> Screen { get; private set; }
+        public IBaseRepository<Seat> Seat { get; private set; }
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
             Cinema = new BaseRepository<Cinema>(_db);
             Screen = new BaseRepository<Screen>(_db);
+            Seat = new BaseRepository<Seat>(_db);
         }
         public void Save()
         {
