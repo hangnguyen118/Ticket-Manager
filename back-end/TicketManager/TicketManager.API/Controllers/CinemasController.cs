@@ -6,15 +6,15 @@ namespace TicketManager.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CinemasController(IBaseRepository<Cinema> cinemaRepository) : ControllerBase
+    public class CinemasController(IUnitOfWork unitOfWork) : ControllerBase
     {
-        private readonly IBaseRepository<Cinema> _cinemaRepository = cinemaRepository;
+        private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
         // GET: api/Cinemas
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Cinema>>> GetCinemas()
         {
-            var cinemas = await _cinemaRepository.GetAllAsync();
+            var cinemas = await _unitOfWork.Cinema.GetAllAsync();
             return Ok(cinemas);
         }
 
@@ -22,7 +22,7 @@ namespace TicketManager.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Cinema>> GetCinema(string id)
         {
-            var cinema = await _cinemaRepository.GetAsync(u=>u.Id == id);
+            var cinema = await _unitOfWork.Cinema.GetAsync(u=>u.Id == id);
             if (cinema == null)
             {   
                 return NotFound();
@@ -36,7 +36,7 @@ namespace TicketManager.API.Controllers
         {
             var cancellationToken = HttpContext.RequestAborted;
 
-            Cinema? cinemaFromDb = await _cinemaRepository.GetAsync(u => u.Id == id);
+            Cinema? cinemaFromDb = await _unitOfWork.Cinema.GetAsync(u => u.Id == id);
             if (cinemaFromDb == null)
             {
                 return NotFound(new { message = "Cinema not found" });
@@ -46,8 +46,8 @@ namespace TicketManager.API.Controllers
                 cinemaFromDb.State = cinema.State;
                 cinemaFromDb.StreetAddress = cinema.StreetAddress;
 
-                _cinemaRepository.Update(cinemaFromDb);
-                await _cinemaRepository.SaveChangesAsync(cancellationToken);
+               _unitOfWork.Cinema.Update(cinemaFromDb);
+                await _unitOfWork.Cinema.SaveChangesAsync(cancellationToken);
 
                 return Ok(cinemaFromDb); 
         }
@@ -58,8 +58,8 @@ namespace TicketManager.API.Controllers
         {
             var cancellationToken = HttpContext.RequestAborted;
 
-            await _cinemaRepository.AddAsync(cinema);          
-            await _cinemaRepository.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.Cinema.AddAsync(cinema);          
+            await _unitOfWork.Cinema.SaveChangesAsync(cancellationToken);
             return CreatedAtAction(nameof(GetCinema), new { id = cinema.Id }, cinema);
         }
 
@@ -69,13 +69,13 @@ namespace TicketManager.API.Controllers
         {
             var cancellationToken = HttpContext.RequestAborted;
 
-            var cinema = await _cinemaRepository.GetAsync(u=>u.Id == id);
+            var cinema = await _unitOfWork.Cinema.GetAsync(u=>u.Id == id);
             if (cinema == null)
             {
                 return NotFound();
             }
-            _cinemaRepository.Remove(cinema);
-            await _cinemaRepository.SaveChangesAsync(cancellationToken);
+           _unitOfWork.Cinema.Remove(cinema);
+            await _unitOfWork.Cinema.SaveChangesAsync(cancellationToken);
             return NoContent();
         }
     }

@@ -49,3 +49,4 @@ appsettings*.json
 secrets.json
 .env
 .env.*.local
+/back-end/TicketManager/TicketManager.API/Migrations/
