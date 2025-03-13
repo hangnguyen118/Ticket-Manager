@@ -7,6 +7,6 @@ namespace TicketManager.API.EntityModels
         [Key]
         public string Id { get; set; } = Guid.NewGuid().ToString();
         [Required]
-        public string FullName { get; set; }
+        public string FullName { get; set; } = string.Empty;
     }
 }

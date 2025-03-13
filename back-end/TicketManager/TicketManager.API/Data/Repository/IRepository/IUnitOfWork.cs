@@ -12,6 +12,6 @@ namespace TicketManager.API.Data.Repository.IRepository
         IBaseRepository<PaymentMethod> PaymentMethod { get; }
         IBaseRepository<ApplicationUser> ApplicationUser { get; }
         IBaseRepository<Image> Image { get; }
-        void Save();
+        Task<bool> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

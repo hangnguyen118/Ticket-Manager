@@ -55,7 +55,7 @@ namespace TicketManager.API.Controllers
             seatFromDb.SeatType = seat.SeatType;
             seatFromDb.Price = seat.Price;
             _unitOfWork.Seat.Update(seatFromDb);
-            await _unitOfWork.Seat.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             return Ok(seatFromDb);
         }
@@ -71,7 +71,7 @@ namespace TicketManager.API.Controllers
                 return NotFound(new { message = $"Screen with id={seat.ScreenId} not found" });
             }
             await _unitOfWork.Seat.AddAsync(seat);
-            await _unitOfWork.Seat.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
             return CreatedAtAction(nameof(GetSeat), new { id = seat.Id }, seat);
         }
 
@@ -87,7 +87,7 @@ namespace TicketManager.API.Controllers
                 return NotFound();
             }
             _unitOfWork.Seat.Remove(seat);
-            await _unitOfWork.Seat.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
             return NoContent();
         }
     }

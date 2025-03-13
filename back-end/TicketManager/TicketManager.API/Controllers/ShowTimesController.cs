@@ -60,7 +60,7 @@ namespace TicketManager.API.Controllers
             showTimesFromDb.ScreenId = showTimes.ScreenId;
 
             _unitOfWork.ShowTime.Update(showTimesFromDb);
-            await _unitOfWork.ShowTime.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             return Ok(showTimesFromDb);
         }
@@ -82,7 +82,7 @@ namespace TicketManager.API.Controllers
                 return NotFound(new { message = $"Movie id={showTimes.MovieId} not found" });
             }
             await _unitOfWork.ShowTime.AddAsync(showTimes);
-            await _unitOfWork.ShowTime.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
             return CreatedAtAction(nameof(GetshowTimes), new { id = showTimes.Id }, showTimes);
         }
 
@@ -98,7 +98,7 @@ namespace TicketManager.API.Controllers
                 return NotFound();
             }
             _unitOfWork.ShowTime.Remove(showTimes);
-            await _unitOfWork.ShowTime.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
             return NoContent();
         }
     }

@@ -50,9 +50,9 @@ namespace TicketManager.API.Data.Repository
             }
             return await query.FirstOrDefaultAsync(cancellationToken);
         }
-        public async Task AddAsync(T entity)
+        public async Task AddAsync(T entity, CancellationToken cancellationToken = new CancellationToken())
         {
-            await _dbSet.AddAsync(entity);
+            await _dbSet.AddAsync(entity, cancellationToken);
         }
         public void Remove(T entity)
         {
@@ -66,12 +66,7 @@ namespace TicketManager.API.Data.Repository
         public void Update(T entity)
         {
             _dbSet.Update(entity);
-        }
-
-        public async Task<bool> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
-        {
-            return await _db.SaveChangesAsync(cancellationToken) > 0;
-        }
+        }        
         public async Task<bool> ExistsAsync(Expression<Func<T, bool>> filter, CancellationToken cancellationToken = new CancellationToken())
         {         
             return await _dbSet.AnyAsync(filter, cancellationToken);

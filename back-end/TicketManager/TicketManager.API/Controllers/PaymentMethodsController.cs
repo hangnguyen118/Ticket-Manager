@@ -44,7 +44,7 @@ namespace TicketManager.API.Controllers
             paymentMethodFromDb.Name = paymentMethod.Name;
           
             _unitOfWork.PaymentMethod.Update(paymentMethodFromDb);
-            await _unitOfWork.PaymentMethod.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             return Ok(paymentMethodFromDb);
         }
@@ -56,7 +56,7 @@ namespace TicketManager.API.Controllers
             var cancellationToken = HttpContext.RequestAborted;
 
             await _unitOfWork.PaymentMethod.AddAsync(paymentMethod);
-            await _unitOfWork.PaymentMethod.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
             return CreatedAtAction(nameof(GetpaymentMethod), new { id = paymentMethod.Id }, paymentMethod);
         }
 
@@ -72,7 +72,7 @@ namespace TicketManager.API.Controllers
                 return NotFound();
             }
             _unitOfWork.PaymentMethod.Remove(paymentMethod);
-            await _unitOfWork.PaymentMethod.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
             return NoContent();
         }
     }

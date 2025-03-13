@@ -53,7 +53,7 @@ namespace TicketManager.API.Controllers
             screenFromDb.Cinema = cinema;
 
             _unitOfWork.Screen.Update(screenFromDb);
-            await _unitOfWork.Screen.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             return Ok(screenFromDb);
         }
@@ -69,7 +69,7 @@ namespace TicketManager.API.Controllers
                 return NotFound(new { message = "Cinema not found" });
             }
             await _unitOfWork.Screen.AddAsync(screen);
-            await _unitOfWork.Screen.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
             return CreatedAtAction(nameof(GetScreen), new { id = screen.Id }, screen);
         }
 
@@ -85,7 +85,7 @@ namespace TicketManager.API.Controllers
                 return NotFound();
             }
             _unitOfWork.Screen.Remove(screen);
-            await _unitOfWork.Screen.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
             return NoContent();
         }
     }

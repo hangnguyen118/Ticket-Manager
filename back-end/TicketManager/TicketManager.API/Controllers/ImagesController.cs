@@ -1,40 +1,44 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using TicketManager.API.Data.Repository.IRepository;
-using TicketManager.API.Data.Repository;
-using TicketManager.API.EntityModels;
+using AutoMapper;
+using TicketManager.API.EntityModels.Dto.Image;
+using Image = TicketManager.API.EntityModels.Image;
+using TicketManager.API.Utility;
 
 namespace TicketManager.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ImagesController(IUnitOfWork unitOfWork) : ControllerBase
+    public class ImagesController(IUnitOfWork unitOfWork, IMapper mapper) : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork = unitOfWork;
+        private readonly IMapper _mapper = mapper;
 
         // GET: api/Images
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Image>>> GetImages()
+        public async Task<ActionResult<IEnumerable<GetImageDto>>> GetImages()
         {
             var images = await _unitOfWork.Image.GetAllAsync();
-            return Ok(images);
+            var records = _mapper.Map<List<GetImageDto>>(images);
+            return Ok(records);
         }
 
         // GET: api/Images/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Image>> GetImage(string id)
+        public async Task<ActionResult<GetImageDto>> GetImage(string id)
         {
             var image = await _unitOfWork.Image.GetAsync(u => u.Id == id);
             if (image == null)
             {
                 return NotFound();
             }
-            return Ok(image);
+            var imageDto = _mapper.Map<GetImageDto>(image);
+            return Ok(imageDto);
         }
 
         // PUT: api/Images/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutImage(string id, Image image)
+        public async Task<IActionResult> PutImage(string id, UpdateImageDto imageDto)
         {
             var cancellationToken = HttpContext.RequestAborted;
 
@@ -43,26 +47,43 @@ namespace TicketManager.API.Controllers
             {
                 return NotFound(new { message = "Image not found" });
             }
-            imageFromDb.ImageUrl = image.ImageUrl;
-            imageFromDb.MovieId = image.MovieId;
-            imageFromDb.ApplicationUserId = image.ApplicationUserId;
-            imageFromDb.ImageType = image.ImageType;
+            _mapper.Map(imageDto, imageFromDb);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-            _unitOfWork.Image.Update(imageFromDb);
-            await _unitOfWork.Image.SaveChangesAsync(cancellationToken);
-
-            return Ok(imageFromDb);
+            return NoContent();
         }
 
         // POST: api/Images
         [HttpPost]
-        public async Task<ActionResult<Image>> PostImage(Image image)
+        public async Task<ActionResult<GetImageDto>> PostImage(CreateImageDto createImageDto)
         {
             var cancellationToken = HttpContext.RequestAborted;
-
+            if (string.IsNullOrEmpty(createImageDto.MovieId) && string.IsNullOrEmpty(createImageDto.ApplicationUserId))
+            {
+                return BadRequest("Either ApplicationUserId or MovieId must be provided.");
+            }
+            else if(createImageDto.ImageType == SD.Image_Movie)
+            {
+                var movie = await _unitOfWork.Movie.GetAsync(u => u.Id == createImageDto.MovieId);
+                if (movie == null)
+                {
+                    return NotFound("Movie Not Found");
+                }
+            }
+            else if (createImageDto.ImageType == SD.Image_User)
+            {
+                var applicationUser = await _unitOfWork.ApplicationUser.GetAsync(u => u.Id == createImageDto.ApplicationUserId);
+                if (applicationUser == null)
+                {
+                    return NotFound("User Not Found");
+                }
+            }            
+            var image = _mapper.Map<Image>(createImageDto);
             await _unitOfWork.Image.AddAsync(image);
-            await _unitOfWork.Image.SaveChangesAsync(cancellationToken);
-            return CreatedAtAction(nameof(GetImage), new { id = image.Id }, image);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+            var imageDto = _mapper.Map<GetImageDto>(image);
+            return CreatedAtAction(nameof(GetImage), new { id = image.Id }, imageDto);
         }
 
         // DELETE: api/Images/5
@@ -77,7 +98,7 @@ namespace TicketManager.API.Controllers
                 return NotFound();
             }
             _unitOfWork.Image.Remove(image);
-            await _unitOfWork.Image.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
             return NoContent();
         }
     }

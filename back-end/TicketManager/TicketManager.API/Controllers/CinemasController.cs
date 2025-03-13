@@ -1,38 +1,43 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using TicketManager.API.Data.Repository.IRepository;
 using TicketManager.API.EntityModels;
+using TicketManager.API.EntityModels.Dto.Cinema;
 
 namespace TicketManager.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CinemasController(IUnitOfWork unitOfWork) : ControllerBase
+    public class CinemasController(IUnitOfWork unitOfWork, IMapper mapper) : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork = unitOfWork;
+        private readonly IMapper _mapper = mapper;
 
         // GET: api/Cinemas
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Cinema>>> GetCinemas()
+        public async Task<ActionResult<IEnumerable<GetCinemaDto>>> GetCinemas()
         {
             var cinemas = await _unitOfWork.Cinema.GetAllAsync();
-            return Ok(cinemas);
+            var records = _mapper.Map<List<GetCinemaDto>>(cinemas);
+            return Ok(records);
         }
 
         // GET: api/Cinemas/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Cinema>> GetCinema(string id)
+        public async Task<ActionResult<GetCinemaDto>> GetCinema(string id)
         {
-            var cinema = await _unitOfWork.Cinema.GetAsync(u=>u.Id == id);
+            var cinema = await _unitOfWork.Cinema.GetAsync(u => u.Id == id);
             if (cinema == null)
-            {   
+            {
                 return NotFound();
             }
-            return Ok(cinema);
+            var record = _mapper.Map<GetCinemaDto>(cinema);
+            return Ok(record);
         }
 
         // PUT: api/Cinemas/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCinema(string id, Cinema cinema)
+        public async Task<IActionResult> PutCinema(string id, UpdateCinemaDto updateCinemaDto)
         {
             var cancellationToken = HttpContext.RequestAborted;
 
@@ -40,27 +45,26 @@ namespace TicketManager.API.Controllers
             if (cinemaFromDb == null)
             {
                 return NotFound(new { message = "Cinema not found" });
-            }           
-                cinemaFromDb.Name = cinema.Name;
-                cinemaFromDb.City = cinema.City;
-                cinemaFromDb.State = cinema.State;
-                cinemaFromDb.StreetAddress = cinema.StreetAddress;
+            }
 
-               _unitOfWork.Cinema.Update(cinemaFromDb);
-                await _unitOfWork.Cinema.SaveChangesAsync(cancellationToken);
+            _mapper.Map(updateCinemaDto, cinemaFromDb);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-                return Ok(cinemaFromDb); 
+            return NoContent();
         }
 
         // POST: api/Cinemas
         [HttpPost]
-        public async Task<ActionResult<Cinema>> PostCinema(Cinema cinema)
+        public async Task<ActionResult<Cinema>> PostCinema(CreateCinemaDto createCinemaDto)
         {
             var cancellationToken = HttpContext.RequestAborted;
 
-            await _unitOfWork.Cinema.AddAsync(cinema);          
-            await _unitOfWork.Cinema.SaveChangesAsync(cancellationToken);
-            return CreatedAtAction(nameof(GetCinema), new { id = cinema.Id }, cinema);
+            var cinema = _mapper.Map<Cinema>(createCinemaDto);
+            await _unitOfWork.Cinema.AddAsync(cinema);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+            var cinemaDto = _mapper.Map<GetCinemaDto>(cinema);
+            return CreatedAtAction(nameof(GetCinema), new { id = cinema.Id }, cinemaDto);
         }
 
         // DELETE: api/Cinemas/5
@@ -69,13 +73,13 @@ namespace TicketManager.API.Controllers
         {
             var cancellationToken = HttpContext.RequestAborted;
 
-            var cinema = await _unitOfWork.Cinema.GetAsync(u=>u.Id == id);
+            var cinema = await _unitOfWork.Cinema.GetAsync(u => u.Id == id);
             if (cinema == null)
             {
                 return NotFound();
             }
-           _unitOfWork.Cinema.Remove(cinema);
-            await _unitOfWork.Cinema.SaveChangesAsync(cancellationToken);
+            _unitOfWork.Cinema.Remove(cinema);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
             return NoContent();
         }
     }

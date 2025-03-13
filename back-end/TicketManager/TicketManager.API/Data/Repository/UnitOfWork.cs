@@ -26,9 +26,9 @@ namespace TicketManager.API.Data.Repository
             ApplicationUser = new BaseRepository<ApplicationUser>(_db);
             Image = new BaseRepository<Image>(_db);
         }
-        public void Save()
+        public async Task<bool> SaveChangesAsync(CancellationToken cancellationToken)
         {
-            _db.SaveChanges();
+            return await _db.SaveChangesAsync(cancellationToken) > 0;
         }
     }
 }

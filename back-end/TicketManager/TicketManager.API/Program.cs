@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using TicketManager.API.Configuration;
 using TicketManager.API.Data;
 using TicketManager.API.Data.DbInitializer;
 using TicketManager.API.Data.Repository;
@@ -23,6 +24,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAll",
         b => b.AllowAnyHeader().WithOrigins("http://172.0.0.235:3000").AllowAnyMethod());
 });
+
+builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
 
 var app = builder.Build();
 

@@ -51,7 +51,7 @@ namespace TicketManager.API.Controllers
             cinemaFromDb.Duration = movie.Duration;
 
             _unitOfWork.Movie.Update(cinemaFromDb);
-            await _unitOfWork.Movie.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             return Ok(cinemaFromDb);
         }
@@ -63,7 +63,7 @@ namespace TicketManager.API.Controllers
             var cancellationToken = HttpContext.RequestAborted;
 
             await _unitOfWork.Movie.AddAsync(movie);
-            await _unitOfWork.Movie.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
             return CreatedAtAction(nameof(GetCinema), new { id = movie.Id }, movie);
         }
 
@@ -79,7 +79,7 @@ namespace TicketManager.API.Controllers
                 return NotFound();
             }
             _unitOfWork.Movie.Remove(movie);
-            await _unitOfWork.Movie.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
             return NoContent();
         }
     }

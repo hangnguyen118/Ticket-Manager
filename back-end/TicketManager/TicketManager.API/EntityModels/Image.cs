@@ -9,17 +9,17 @@ namespace TicketManager.API.EntityModels
         [Key]
         public string Id { get; set; } = Guid.NewGuid().ToString();
         [Required]
-        public string ImageUrl { get; set; }
+        public string ImageUrl { get; set; } = string.Empty;
         public string? MovieId { get; set; }
         [ForeignKey("MovieId")]
         [ValidateNever]
-        public Movie Movie { get; set; }
+        public Movie? Movie { get; set; }
         public string? ApplicationUserId { get; set; }
         [ForeignKey("ApplicationUserId")]
         [ValidateNever]
-        public ApplicationUser ApplicationUser { get; set; }
+        public ApplicationUser? ApplicationUser { get; set; }
 
         [Required]
-        public string ImageType { get; set; }
+        public string ImageType { get; set; } = string.Empty;
     }
 }
