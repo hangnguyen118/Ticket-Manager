@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using TicketManager.API.Data;
+using TicketManager.API.Data.DbInitializer;
+using TicketManager.API.Data.Repository;
+using TicketManager.API.Data.Repository.IRepository;
+using TicketManager.API.EntityModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IBaseRepository<Cinema>, BaseRepository<Cinema>>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
