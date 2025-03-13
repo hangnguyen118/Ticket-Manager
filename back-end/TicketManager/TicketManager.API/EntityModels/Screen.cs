@@ -9,13 +9,13 @@ namespace TicketManager.API.EntityModels
         [Key]
         public string Id { get; set; } = Guid.NewGuid().ToString();
         [Required]
-        public string ScreenNumber { get; set; }
+        public string ScreenNumber { get; set; } = string.Empty;
         [Required]
         public int Capacity { get; set; }
         [Required]
-        public string CinemaId { get; set; }
-        [ForeignKey("CinemaId")]
+        public string CinemaId { get; set; } = string.Empty;
+        [ForeignKey(nameof(CinemaId))]
         [ValidateNever]
-        public Cinema Cinema { get; set; }
+        public Cinema Cinema { get; set; } = null!;
     }
 }
