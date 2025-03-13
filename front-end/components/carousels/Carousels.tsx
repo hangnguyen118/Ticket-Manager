@@ -4,14 +4,16 @@ import { Card, CardSection, Image, Text, useMantineTheme } from "@mantine/core"
 import classes from "./Carousels.module.css";
 import { Carousel, CarouselSlide } from "@mantine/carousel";
 import { useMediaQuery } from "@mantine/hooks";
+import { useRouter } from "next/navigation";
 
 
 export default function Carousels() {
     const theme = useMantineTheme()
     const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
-    const items = movies.map(({ title, posterUrl, genre }, index) => (
+    const router = useRouter();
+    const items = movies.map(({ id, title, posterUrl, genre }, index) => (
         <CarouselSlide key={index}>
-            <Card className={classes.card} key={index} shadow="sm" padding="md">
+            <Card onClick={() => router.push(`/movies/${id}`)} className={classes.card} key={index} shadow="sm" padding="md">
                 <CardSection>
                     <Image src={posterUrl} alt={title} fit="cover" radius="md" h={mobile ? 200 : 300}></Image>
                 </CardSection>

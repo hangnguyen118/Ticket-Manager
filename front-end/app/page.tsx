@@ -3,6 +3,7 @@ import { Container, Title } from "@mantine/core";
 import { Carousels } from "@/components/carousels";
 
 export default function Home() {
+  
   return (
     <div className={classes.page}>
       <main>

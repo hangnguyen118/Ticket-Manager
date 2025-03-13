@@ -30,12 +30,13 @@
 
 @media (min-width: 768px) {
   .link:hover {
-    border-bottom: 1px solid rgb(179, 255, 179);
+    background-color: antiquewhite;
+
   }
 }
 @media (max-width: 768px) {
   .link:active {
-    background-color:rgb(213, 213, 213);
+    background-color:rgb(186, 186, 186);
   }
 }
 @media (max-width: 768px) {

@@ -1,16 +1,16 @@
 "use client"
-
 import { Burger, Button, Divider, Drawer, Group, ScrollArea } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { links } from "@/data/mockdatas";
-import MenuItem from "../menuItem/MenuItem";
 import Link from "next/link";
+import NavMobileMenu from "./NavMobileMenu";
 
 export default function NavbarMobile({ ...rest }) {
     const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
-    const items = links.map(({ label, link, links }, index) => (
-        <MenuItem key={index} label={label} link={link} links={links} />
-    ))
+
+    const items = links.map((item, index) => (
+        <NavMobileMenu item={item} key={index} link={item.link}></NavMobileMenu>
+    ));
     return (
         <Group {...rest}>
             <Drawer

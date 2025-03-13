@@ -2,14 +2,16 @@ import classes from "./MovieCard.module.css";
 import { Movie } from "@/data/types";
 import { Badge, Box, Card, Flex, Group, Image, Text } from "@mantine/core";
 import { IconCalendarMonth, IconClockHour3 } from "@tabler/icons-react";
+import { useRouter } from "next/navigation";
 
 interface MovieCardProps extends Movie {
   [key: string]: unknown;
 }
 
-export default function MovieCard({ title, rating, age_rating, genre, duration, release_day, posterUrl, ...rest }: MovieCardProps) {
+export default function MovieCard({ id, title, rating, age_rating, genre, duration, release_day, posterUrl, ...rest }: MovieCardProps) {
+  const router = useRouter();
   return (
-    <Card className={classes.card} shadow="sm" padding={0}>
+    <Card onClick={() => router.push(`/movies/${id}`)} className={classes.card} shadow="sm" padding={0}>
       <Flex {...rest}>
         <Box className={classes.card_section}>
           <Image src={posterUrl} alt={title} fit="cover" h={{base: 200, sm:300}} radius="md" />

@@ -7,3 +7,6 @@
   padding: 0.5rem;
   z-index: 100;
 }
+.inner {
+  display: flex;
+}

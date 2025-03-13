@@ -1,8 +1,9 @@
 "use client"
 import { Badge, Button, Container, Image, Text, useMantineTheme } from "@mantine/core";
 import classes from "./page.module.css";
-import { IconPlayerPlay, IconTicket } from "@tabler/icons-react";
+import { IconArrowLeft, IconArrowRight, IconPlayerPlay, IconTicket } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
+import { useParams, useRouter } from "next/navigation";
 
 const movie = {
     title: "Nụ Hôn Bạc Tỷ",
@@ -20,9 +21,12 @@ const movie = {
 export default function Page() {
     const theme = useMantineTheme()
     const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+    const router = useRouter();
+    const { id } = useParams();
     return (
         <div className={classes.page}>
             <Container size="lg">
+            <Button onClick={() => router.push('/')} fullWidth justify="left" mb={10} variant="transparent" leftSection={<IconArrowLeft size={14} />}>Back to Home</Button>
                 <div className={classes.movie_hero}>
                     <Badge className={classes.age_rating} color="rgba(255, 61, 61, 1)">{movie.age_rating}+</Badge>
                     <Image src={movie.posterUrl} fit="contain" height={mobile ? 200 : 350} alt={movie.title}></Image>
