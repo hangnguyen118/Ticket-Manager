@@ -24,7 +24,7 @@ namespace TicketManager.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Seat>> GetSeat(string id)
         {
-            var seat = await _unitOfWork.Seat.GetAsync(u => u.Id == id);
+            var seat = await _unitOfWork.Seat.GetAsync(u => u.Id == id, includeProperties: "Screen");
             if (seat == null)
             {
                 return NotFound();
@@ -38,11 +38,16 @@ namespace TicketManager.API.Controllers
         {
             var cancellationToken = HttpContext.RequestAborted;
 
-            Seat? seatFromDb = await _unitOfWork.Seat.GetAsync(u => u.Id == id);
+            Seat? seatFromDb = await _unitOfWork.Seat.GetAsync(u => u.Id == id, includeProperties: "Screen");
             if (seatFromDb == null)
             {
                 return NotFound(new { message = "Seat not found" });
             }
+            Screen? screenFromDb = await _unitOfWork.Screen.GetAsync(u => u.Id == seat.ScreenId);
+            if(screenFromDb == null)
+            {
+                return NotFound(new { message = $"Screen with id={seat.ScreenId} not found" });
+            }               
             seatFromDb.Row = seat.Row;
             seatFromDb.Column = seat.Column;
             seatFromDb.ScreenId = seat.ScreenId;
@@ -60,7 +65,11 @@ namespace TicketManager.API.Controllers
         public async Task<ActionResult<Seat>> PostSeat(Seat seat)
         {
             var cancellationToken = HttpContext.RequestAborted;
-
+            Screen? screenFromDb = await _unitOfWork.Screen.GetAsync(u => u.Id == seat.ScreenId);
+            if (screenFromDb == null)
+            {
+                return NotFound(new { message = $"Screen with id={seat.ScreenId} not found" });
+            }
             await _unitOfWork.Seat.AddAsync(seat);
             await _unitOfWork.Seat.SaveChangesAsync(cancellationToken);
             return CreatedAtAction(nameof(GetSeat), new { id = seat.Id }, seat);
