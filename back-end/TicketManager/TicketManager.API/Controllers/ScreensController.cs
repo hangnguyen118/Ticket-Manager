@@ -27,7 +27,7 @@ namespace TicketManager.API.Controllers
             if (Screen == null)
             {
                 return NotFound();
-            }
+            }           
             return Ok(Screen);
         }
 
@@ -37,15 +37,20 @@ namespace TicketManager.API.Controllers
         {
             var cancellationToken = HttpContext.RequestAborted;
 
-            Screen? screenFromDb = await _unitOfWork.Screen.GetAsync(u => u.Id == id, includeProperties: "Cinema");
-            //Cinema? cinema = await unitWorkRepository.GetA
+            Screen? screenFromDb = await _unitOfWork.Screen.GetAsync(u => u.Id == id, includeProperties: "Cinema");            
             if (screenFromDb == null)
             {
                 return NotFound(new { message = "Screen not found" });
             }
+            Cinema? cinema = await _unitOfWork.Cinema.GetAsync(u => u.Id == screen.CinemaId);
+            if (cinema == null)
+            {
+                return NotFound(new { message = "Cinema not found" });
+            }
             screenFromDb.ScreenNumber = screen.ScreenNumber;
             screenFromDb.Capacity = screen.Capacity;
             screenFromDb.CinemaId = screen.CinemaId;
+            screenFromDb.Cinema = cinema;
 
             _unitOfWork.Screen.Update(screenFromDb);
             await _unitOfWork.Screen.SaveChangesAsync(cancellationToken);
@@ -58,7 +63,11 @@ namespace TicketManager.API.Controllers
         public async Task<ActionResult<Screen>> PostScreen(Screen screen)
         {
             var cancellationToken = HttpContext.RequestAborted;
-
+            Cinema? cinema = await _unitOfWork.Cinema.GetAsync(u => u.Id == screen.CinemaId);
+            if (cinema == null)
+            {
+                return NotFound(new { message = "Cinema not found" });
+            }
             await _unitOfWork.Screen.AddAsync(screen);
             await _unitOfWork.Screen.SaveChangesAsync(cancellationToken);
             return CreatedAtAction(nameof(GetScreen), new { id = screen.Id }, screen);
