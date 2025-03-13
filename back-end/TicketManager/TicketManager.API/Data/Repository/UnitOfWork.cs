@@ -12,6 +12,8 @@ namespace TicketManager.API.Data.Repository
         public IBaseRepository<ShowTime> ShowTime { get; private set; }
         public IBaseRepository<Movie> Movie { get; private set; }
         public IBaseRepository<PaymentMethod> PaymentMethod { get; private set; }
+        public IBaseRepository<ApplicationUser> ApplicationUser { get; private set; }
+        public IBaseRepository<Image> Image { get; private set; }
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
@@ -21,6 +23,8 @@ namespace TicketManager.API.Data.Repository
             ShowTime = new BaseRepository<ShowTime>(_db);
             Movie = new BaseRepository<Movie>(_db);
             PaymentMethod = new BaseRepository<PaymentMethod>(_db);
+            ApplicationUser = new BaseRepository<ApplicationUser>(_db);
+            Image = new BaseRepository<Image>(_db);
         }
         public void Save()
         {

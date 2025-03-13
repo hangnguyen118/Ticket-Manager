@@ -10,6 +10,8 @@ namespace TicketManager.API.Data.Repository.IRepository
         IBaseRepository<ShowTime> ShowTime { get; }
         IBaseRepository<Movie> Movie { get; }
         IBaseRepository<PaymentMethod> PaymentMethod { get; }
+        IBaseRepository<ApplicationUser> ApplicationUser { get; }
+        IBaseRepository<Image> Image { get; }
         void Save();
     }
 }
