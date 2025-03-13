@@ -45,7 +45,7 @@ namespace TicketManager.API.Data.Repository
                 foreach (var property in includeProperties
                     .Split(separator, StringSplitOptions.RemoveEmptyEntries))
                 {
-                    query = query.Include(property);
+                    query = query.Include(property.Trim());
                 }
             }
             return await query.FirstOrDefaultAsync(cancellationToken);

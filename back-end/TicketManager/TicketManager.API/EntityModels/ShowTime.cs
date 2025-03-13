@@ -13,13 +13,13 @@ namespace TicketManager.API.EntityModels
         [Required]
         public DateTime EndTime { get; set; }
         [Required]
-        public string MovieId { get; set; }
-        [ForeignKey("MovieId")]
+        public string MovieId { get; set; } = string.Empty;
+        [ForeignKey(nameof(MovieId))]
         [ValidateNever]
-        public Movie Movie { get; set; }
-        public string ScreenId { get; set; }
-        [ForeignKey("ScreenId")]
+        public Movie Movie { get; set; } = null!;
+        public string ScreenId { get; set; } = string.Empty;
+        [ForeignKey(nameof(ScreenId))]
         [ValidateNever]
-        public Screen Screen { get; set; }
+        public Screen Screen { get; set; } = null!;
     }
 }
