@@ -23,7 +23,7 @@ namespace TicketManager.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Screen>> GetScreen(string id)
         {
-            var Screen = await _unitOfWork.Screen.GetAsync(u => u.Id == id);
+            var Screen = await _unitOfWork.Screen.GetAsync(u => u.Id == id, includeProperties: "Cinema");
             if (Screen == null)
             {
                 return NotFound();
@@ -37,7 +37,7 @@ namespace TicketManager.API.Controllers
         {
             var cancellationToken = HttpContext.RequestAborted;
 
-            Screen? screenFromDb = await _unitOfWork.Screen.GetAsync(u => u.Id == id);
+            Screen? screenFromDb = await _unitOfWork.Screen.GetAsync(u => u.Id == id, includeProperties: "Cinema");
             //Cinema? cinema = await unitWorkRepository.GetA
             if (screenFromDb == null)
             {
